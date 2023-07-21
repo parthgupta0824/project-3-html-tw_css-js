@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anolog clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-bla ck">
+    <div class="container bg-cover relative  m-auto h-96 w-96"> 
+    </div>
+    <script src="script.js"></script>
+    <script>
+        let d = document.querySelector('.container')
+        d.classList.add('bg-[url(https://i.pinimg.com/originals/f9/36/c5/f936c5a35c35c3f4d7c498fb8edad0f1.png)]')
+        d.classList.add('bg-no-repeat')
+        d.classList.add('border-2')
+        d.classList.add('border-black')
+        const h = document.createElement('div')
+        const m = document.createElement('div')
+        const s = document.createElement('div')
+        h.className = 'h-20 w-1 z-50 absolute origin-bottom bg-green-500 top-[30%] left-[49.5%]  ';
+        m.className = 'h-24 w-1 z-40 absolute origin-bottom bg-red-500  bottom-[0%] left-[4.5%]  ';
+        s.className = 'h-28 w-1 z-10 absolute origin-bottom bg-blue-500   bottom-[0%] left-[49.5%]  ';
+        d.append(h)
+        h.append(m)
+        m.append(s)
+        setInterval(() => {
+            let ctr_time = new Date()
+            let ch = ctr_time.getHours();
+            let cm = ctr_time.getMinutes();
+            let cs = ctr_time.getSeconds();
+            let hh = (ch * 30) + (cm / 2);
+            let mm = (cm * 6)
+            let ss = (cs * 6)
+            h.style.transform = `rotate(${hh}deg)`;
+            m.style.transform = `rotate(${mm}deg)`;
+            s.style.transform = `rotate(${ss}deg)`;
+        }, 1000);
+
+
+    </script>
+</body>
+
+</html>
